@@ -6,36 +6,34 @@
 		$email = htmlentities($_POST['email']);	//on stocke les données recu
 		$password = htmlentities($_POST['password']);
 		$conf_mdp = htmlentities($_POST['conf_mdp']);
-		if(empty($id) or empty($username) or empty($email) or empty($password) or empty($conf_pass))//on verifie si les variables sont bien remplis
+		if(empty($id) or empty($username) or empty($email) or empty($password) or empty($conf_pass))
 		{
-			echo 'Merci de remplir tous les champs'; //msg quand les variables sont vides
+			echo 'Merci de remplir tous les champs';
 		}
 		else
 		{
 			include('connexion.php');
-      // connexion à la base de donnee et table
 			try{
-				$bdd = new PDO('mysql:host=localhost;dbname=baby;charset=utf8', 'root', ''); // On se connecte à MySQL
+				$bdd = new PDO('mysql:host=localhost;dbname=baby;charset=utf8', 'root', '');
 			}
 			catch(Exception $e)
 			{
-				// En cas d'erreur, on affiche un message et on arrête tout
 
 					die('Erreur : '.$e->getMessage());
 
 			}
 			
 			$request ="INSERT INTO user(id, username, email, password, conf_pass) 
-			           VALUES ('".$id."', '".$username."', '".$email."', '".$password."', '".$conf_pass."')";//requete a executer
+			           VALUES ('".$id."', '".$username."', '".$email."', '".$password."', '".$conf_pass."')";
 
-			$reponse = $bdd->exec($request);//execution de la requete
+			$reponse = $bdd->exec($request);
 
 			if($reponse == 0){
-				echo 'rien n\'est insérer';//resultat de l'execution si ca n'a pas fonctionner
+				echo 'rien n\'est insérer';
 			}
 			else
 			{
-				echo 'Success <br>';//resultat si la requete a fonctionner
+				echo 'Success <br>';
 			
 				echo $id.'<br>';
 				echo $username.'<br>';
@@ -49,6 +47,6 @@
 	}
 	else
 	{
-		echo 'Merci de remplir tous les champs'; //msg quand un des champs du premier formulaire n'existe pas
+		echo 'Merci de remplir tous les champs'; 
 	}
 	?>
