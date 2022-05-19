@@ -7,17 +7,19 @@
     include 'config.php';
     
     /*Lorsque la requete est passer */
-    if (isset($_POST['title']) && isset($_POST['text'])) 
+    if (isset($_POST['title']) && isset($_POST['text']) && isset($_POST['cat'])) 
         {
         $title = htmlspecialchars($_POST['title']);
         $text = htmlspecialchars($_POST['text']);
+        $category = htmlspecialchars($_POST['cat']);
+
     }
     else {
         echo "Veuillez remplir tous les champs";
     }
 
 
-    $req = $bd->exec("INSERT INTO `questions` (`title_question`, `text_question`) VALUES ('$title', '$text')");
+    $req = $bd->exec("INSERT INTO `questions` (`title_question`, `text_question`, `cat_question`) VALUES ('$title', '$text', '$category')");
     if ($req) {
         header('Location: display_questions.php');
     }
