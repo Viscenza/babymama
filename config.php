@@ -1,15 +1,8 @@
 <?php
-// Informations d'identification
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'baby');
- 
-// Connexion à la base de données MySQL 
-$conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
- 
-// Vérifier la connexion
-if($conn === false){
-    die("ERREUR : Impossible de se connecter a la base de donees. " . mysqli_connect_error());
-}
-?>
+
+    try {
+    	$bd = new PDO('mysql:host=localhost;dbname=mom_advice_db;charset=utf8', 'root', '');
+    } catch (PDOException $exception) {
+    	// If there is an error with the connection, stop the script and display the error.
+    	exit('Failed to connect to database!');
+    }
