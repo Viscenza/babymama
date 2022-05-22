@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrateur</title>
-    <link rel="stylesheet" href="./css/admins.css">
+    <link rel="stylesheet" href="./Style/admin.css">
 </head>
 
 <body>
@@ -18,6 +18,21 @@
     $requete = 'SELECT * FROM questions';
 
     ?>
+<div class="header">
+    <div class="conainer">
+      <div class="header-content">
+        <div class="logo">
+          <p id=logo>Babymama</p>
+        </div>
+        <ul class="nav">
+          <li><a href="#home">Home</a></li>
+          <li><a href="/Forum.html">Forum</a></li>
+          <li><a href="/Login.html">Login</a></li>
+          <li><a href="/Register.html">Register</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
         <p class="text">Effectuer les changements</p>
 

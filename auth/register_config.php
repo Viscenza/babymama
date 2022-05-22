@@ -1,37 +1,39 @@
-<!-- cote serveur de la page auth-->
+<!DOCTYPE html>
+<html lang="en">
 
-<?php
-    /* importation du fichier de connexion vers la base de
-     Donnee */
-        include '../config.php';
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style/register.css">
+  <title>Babymama</title>
+</head>
 
-session_start();
-
-
-    /* verification si le nom et password sont hesiste dans le BD */
-        $query = "SELECT * FROM admins WHERE adminName = :adminName AND password = :password";  
-        $statement = $bd->prepare($query);  
-        $statement->execute(  
-                array(  
-                'adminName'=> $_POST["adminName"],  
-                'password'=>$_POST["password"]  
-                )  
-        );  
-
-        $count = $statement->rowCount();  
-        
-        if($count > 0)  
-        {  
-                $_SESSION["adminName"] = $_POST["adminName"];
-                echo '<script>
-                    location.href="admin.php";
-                </script>';
-        }  
-        else  
-        {  
-                $message = "Le nom d'utilisateur ou le mot de passe est incorrecte";
-                echo '<script>
-                    location.href="auth.php";
-                </script>';
-        }  
-   
+<body>
+  
+  <div class="home" id="home">
+    <div class="overlay">
+      <div class="home-contant">
+      </div>
+    </div>
+    <br> <br> <br> <br> <br>
+    <div class="login-wrap">
+      <div class="login">
+        <h2>SE CONNECTER</h2><br>
+        <div class="login-form">
+          <div class="sign-in-htm">
+            <div class="group">
+              <input name="username" id="user" type="text" class="input" placeholder="Pseudo"><br>
+            </div>
+            <div class="group">
+              <input name="password" type="password" class="input" data-type="password" placeholder="Mot de passe"><br>
+            </div>
+            <div class="group">
+              <input type="submit" class="button" value="Se connecter"><br>
+              <a href="/forgot.html">Mot de passe oublié ?
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
