@@ -1,35 +1,29 @@
 <!-- cote serveur de la page create_question -->
 
 <?php
-
-    /* importation du fichier de connexion vers la base de
-     Donnee */
-    include '../config.php';
+include '../config.php';
     
-    /*Lorsque la requete est passer */
-    if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['username']) && isset($_POST['password'])) 
-        {
-            if ($_POST["password"] == $_POST["conf_pass"]){
-                $nom = htmlspecialchars($_POST['nom']);
-                $prenom = htmlspecialchars($_POST['prenom']);
-                $email = htmlspecialchars($_POST['email']);
-                $username = htmlspecialchars($_POST['username']);
-                $password = htmlspecialchars($_POST['password']);
-            }
-            else {
-                echo "Le mot de passe est incorrecte";
-            }
-    }
-    else {
-        echo "Veuillez remplir tous les champs";
-    }
+/*Lorsque la requete est passer */
+if (isset($_POST['sub'])) 
+    {
+    $nom = htmlspecialchars($_POST['nom']);
+    $prenom = htmlspecialchars($_POST['prenom']);
+    $username = htmlspecialchars($_POST['username']);
+    $email = htmlspecialchars($_POST['email']);
+    $password = htmlspecialchars($_POST['password']);
+}
+else {
+    echo "Veuillez remplir tous les champs";
+}
 
 
-    $req = $bd->exec("INSERT INTO `users` (`nom`, `prenom`, `adresse_mail`, `user_name`, `password`) VALUES ('$nom', '$prenom', '$email', '$username', '$password');");
-    if ($req) {
-        echo "C'est enregistrer";
-    }
-    else {
-        echo 'Error!';
-    }
+$req = $bd->exec("INSERT INTO `users` (`nom`, `prenom`, `adresse_mail`, `user_name`, `password`) VALUES ('$nom', '$prenom', '$username', '$email', '$password')");
+if ($req) {
+    echo "<script>
+        window.location.href=' ../index.html';
+    </script>";
+}
+else {
+    echo 'Error!';
+}
 ?>

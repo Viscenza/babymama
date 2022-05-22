@@ -1,39 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- cote serveur de la page auth-->
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style/register.css">
-  <title>Babymama</title>
-</head>
+<?php
+    /* importation du fichier de connexion vers la base de
+     Donnee */
+        include '../config.php';
 
-<body>
-  
-  <div class="home" id="home">
-    <div class="overlay">
-      <div class="home-contant">
-      </div>
-    </div>
-    <br> <br> <br> <br> <br>
-    <div class="login-wrap">
-      <div class="login">
-        <h2>SE CONNECTER</h2><br>
-        <div class="login-form">
-          <div class="sign-in-htm">
-            <div class="group">
-              <input name="username" id="user" type="text" class="input" placeholder="Pseudo"><br>
-            </div>
-            <div class="group">
-              <input name="password" type="password" class="input" data-type="password" placeholder="Mot de passe"><br>
-            </div>
-            <div class="group">
-              <input type="submit" class="button" value="Se connecter"><br>
-              <a href="/forgot.html">Mot de passe oublié ?
-            </div>
-          </div>
-        </div>
-      </div>
-</body>
-</html>
+session_start();
+
+
+    /* verification si le nom et password sont hesiste dans le BD */
+        $query = "SELECT * FROM users WHERE user_name = :user_name AND password = :password";  
+        $statement = $bd->prepare($query);  
+        $statement->execute(  
+                array(  
+                'user_name'=> $_POST["user_name"],  
+                'password'=>$_POST["password"]  
+                )  
+        );  
+
+        $count = $statement->rowCount();  
+        
+        if($count > 0)  
+        {  
+                $_SESSION["user_name"] = $_POST["user_name"];
+                echo '<script>
+                    location.href="../index.php";
+                </script>';
+        }  
+        else  
+        {  
+                echo 'Error';
+        }  
+   
