@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Questions</h2>
+        <form action="create.php" method="post">
+            <label for="title">Sujet</label>
+            <input type="text" name="title" required id="title" placeholder="Donnez le theme de votre question">
+
+            <label class="big-M" for="text">Description</label>
+            <textarea 
+            name="text" 
+            required >
+
+            </textarea>
+
+            <select name="cat" >
+                <option value="primary">Primary</option>
+                <option value="secondary">Secondary</option>
+                <option value="thirdary">Thirdary</option>
+            </select>
+            <input type="submit" value="Poser" class="create">
+        </form>
+    </div>
+</body>
+</html>
