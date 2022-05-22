@@ -9,11 +9,16 @@
     /*Lorsque la requete est passer */
     if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['username']) && isset($_POST['password'])) 
         {
-        $nom = htmlspecialchars($_POST['nom']);
-        $prenom = htmlspecialchars($_POST['prenom']);
-        $email = htmlspecialchars($_POST['email']);
-        $username = htmlspecialchars($_POST['username']);
-        $password = htmlspecialchars($_POST['password']);
+            if ($_POST["password"] == $_POST["conf_pass"]){
+                $nom = htmlspecialchars($_POST['nom']);
+                $prenom = htmlspecialchars($_POST['prenom']);
+                $email = htmlspecialchars($_POST['email']);
+                $username = htmlspecialchars($_POST['username']);
+                $password = htmlspecialchars($_POST['password']);
+            }
+            else {
+                echo "Le mot de passe est incorrecte";
+            }
     }
     else {
         echo "Veuillez remplir tous les champs";
