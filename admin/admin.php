@@ -23,14 +23,6 @@
       <div class="header-content">
         <div class="logo">
           <p id=logo>Babymama</p>
-        </div>
-        <ul class="nav">
-          <li><a href="#home">Home</a></li>
-          <li><a href="/Forum.html">Forum</a></li>
-          <li><a href="/Login.html">Login</a></li>
-          <li><a href="/Register.html">Register</a></li>
-        </ul>
-      </div>
     </div>
   </div>
 
@@ -40,7 +32,7 @@
         <?php foreach ($bd->query($requete) as $row): ?>
 
             <div  class="card">
-                <a href="../detail.php?id_question=<?= $row['id_question'] ?>" > 
+                <a href="../detail_question.php?id_question=<?= $row['id_question'] ?>" > 
                     <p><?= $row['title_question'] ?></p>
                 </a>
                 <div class="admini">

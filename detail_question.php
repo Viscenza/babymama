@@ -27,7 +27,6 @@
 <?php
 include 'config.php';
 
-
 if (isset($_GET['id_question']) ) {
     // display data from table question
     $stmt = $bd->prepare('SELECT * FROM questions WHERE id_question = ?');
