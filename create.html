@@ -7,26 +7,198 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <h2>Questions</h2>
-        <form action="create.php" method="post">
-            <label for="title">Sujet</label>
-            <input type="text" name="title" required id="title" placeholder="Donnez le theme de votre question">
-
-            <label class="big-M" for="text">Description</label>
-            <textarea 
-            name="text" 
-            required >
-
-            </textarea>
-
-            <select name="cat" >
-                <option value="primary">Primary</option>
-                <option value="secondary">Secondary</option>
-                <option value="thirdary">Thirdary</option>
-            </select>
-            <input type="submit" value="Poser" class="create">
-        </form>
+    <center>
+        <div class="container">
+            <h2>Questions</h2>
+            <form action="create.php" method="post">
+                <label for="title">Sujet</label>
+                <input type="text" name="title" required id="title" placeholder="Donnez le theme de votre question">
+    
+                <label class="big-M" for="text">Description</label>
+                <textarea 
+                name="text" 
+                required >
+    
+                </textarea>
+    
+                <select name="cat" >
+                    <option value="primary">Primary</option>
+                    <option value="secondary">Secondary</option>
+                    <option value="thirdary">Thirdary</option>
+                </select>
+                <input type="submit" value="Poser" class="create">
+            </for>
+    </center>>
     </div>
 </body>
 </html>
+
+
+<style>
+    body{
+    height: 100vh;
+    margin: 0px;
+    font-family: Helvetica;
+    color: #283747;
+    }
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+    margin-bottom: 2.5%;
+}
+
+a{
+    font-size: 20px;
+    margin: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover{
+    color: rgb(34,193,195);;
+}
+
+.container{
+    display: flexbox;
+    padding: 2%;
+    height: 78%;
+    width: 45%;
+    box-sizing: border-box;
+    border-radius: 2px;
+    justify-content: center;
+    padding-top: 2%;
+    margin-bottom: 2%;
+    padding-bottom: 3%;
+    margin-top: 3%;
+    background: rgba(255, 255, 255, 0.38);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+h2{
+    margin: 15px 0px;
+    text-align: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    font-size: 20px;
+    margin: 10px 0px;
+    font-weight: bold;
+}
+
+input{
+    border: none;
+    min-height: 40px;
+    background: #D5DBDB;
+    border-radius: 10px;
+    color: rgb(39, 35, 35);
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+textarea{
+    min-height: 150px;
+    background: #D5DBDB;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    color: rgb(26, 24, 24);
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+.big-M{
+    margin-top: 50px;
+    /* margin-bottom: 30px; */
+}
+
+.create{
+    background: rgb(34,193,195);;
+    color: white;
+    border-radius: 5px;
+    max-width: 150px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.create:hover {
+    background-color: white;
+    color: rgb(34,193,195);;
+    border: 1px solid rgb(34,193,195);
+}
+
+@media screen and (max-width: 1130px){
+    .container{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 910px){
+    .container{
+        width: 60%;
+    }
+
+    header{
+        margin-bottom: 20.5%;
+
+    }
+}
+
+@media screen and (max-width: 700px){
+    .container{
+        width: 70%;
+    }
+
+    a, label, input, textarea{
+        font-size: 18px;
+    }
+
+}
+
+@media screen and (max-width: 490px){
+    header{
+        margin-bottom: 22.5%;
+    }
+
+    .container{
+        width: 85%;
+    }
+
+    a, label, input, textarea{
+        font-size: 16px;
+    }
+    
+}
+
+@media screen and (max-width: 295px){
+    header{
+        margin-bottom: 22.5%;
+    }
+
+    .container{
+        width: 95%;
+    }
+
+    a, label, input, textarea{
+        font-size: 14px;
+    }
+    
+}
+</style>
