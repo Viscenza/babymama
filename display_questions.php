@@ -7,20 +7,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style/display.css">
+    <title>display questions</title>
+    <link rel="stylesheet" href="./style/displays.css">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="./index.html" class="nas">Home</a>
-        </nav>
-
-        <nav class="right">
-            <a href="./create_question.html" class="nas">Posez une question</a>
-        </nav>
-    </header>
+    <!-- Header section -->
+  <div class="header">
+    <div class="conainer">
+      <div class="header-content">
+        <div class="logo">
+          <p id=logo>
+             <a href="index.html">Babymama</a>
+            </p>
+        </div>
+        <ul class="nav">
+          <li><a href="./auth/auth.html">Login</a></li>
+          <li><a href="./auth/register.html">Register</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
     <?php
     include 'config.php';
 
@@ -28,7 +35,7 @@
     ?>
 
     <div class="container">
-        <p class="para2">Trouver la  question qui  vous intéresse</p>
+        <p class="para2">Choisisez une question</p>
 
         <?php foreach ($bd->query($requete) as $row): ?>
 

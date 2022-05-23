@@ -16,10 +16,9 @@
           <p id=logo>Babymama</p>
         </div>
         <ul class="nav">
-          <li><a href="#home">Home</a></li>
-          <li><a href="/Forum.html">Forum</a></li>
-          <li><a href="/Login.html">Login</a></li>
-          <li><a href="/Register.html">Register</a></li>
+          <li><a href="./display_questions.php">Questions</a></li>
+          <li><a href="./auth/auth.html">Login</a></li>
+          <li><a href="./auth/register.html">Register</a></li>
         </ul>
       </div>
     </div>
